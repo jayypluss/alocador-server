@@ -12,9 +12,9 @@ router.get('/gruposCaixas', async (req, res) => {
 });
 
 router.post('/gruposCaixas', async (req, res) => {
-    const { comprimento, altura, largura, quantidade } = req.body;
+    const { comprimento, altura, largura, quantidadeCaixas } = req.body;
 
-    if (!comprimento || !altura || !largura || !quantidade) {
+    if (!comprimento || !altura || !largura || !quantidadeCaixas) {
         return res.status(422)
         .send({ erro:'Você deve prover um comprimento, altura, largura e quantidade de caixas.' });
     }
@@ -24,7 +24,7 @@ router.post('/gruposCaixas', async (req, res) => {
                                             comprimentoX: comprimento,
                                             alturaY: altura,
                                             larguraZ: largura,
-                                            quantidade});
+                                            quantidadeCaixas});
 
         await grupoCaixas.save();
         res.send(grupoCaixas);
