@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DEBUG",
+            "type": "node",
+            "request": "launch",
+            "args": ["${relativeFile}"],
+            "program": "${workspaceRoot}/src/index.ts",
+            "outFiles": ["${workspaceRoot}/out/**/*.js"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+        }
+    ]
+}
