@@ -45,7 +45,7 @@ mongoose.connection.on('error', (err: any) => {
 
 // define a route handler for the default home page
 app.get( "/", ( req: any, res: any ) => {
-    res.send( "Hello world!" );
+    res.status(200).send( "Alocacao API - jayypluss.github.io/alocacao-front" );
 } );
 
 // start the Express server
