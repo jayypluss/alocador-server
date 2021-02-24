@@ -27,7 +27,7 @@ router.post('/containers', async (req, res) => {
                                             quantidade});
 
         await container.save();
-        res.send(container);
+        res.status(200).send(container);
     } catch (err) {
         res.status(422).send({ error: err.message });
     }

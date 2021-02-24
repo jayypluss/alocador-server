@@ -11,13 +11,22 @@ const workerRoutes = require('./routes/alocador-routes');
 // import { Container } from "./workers/container";
 // import { Alocador } from "./workers/alocador";
 
+const cors = require('cors');
 const app = express();
-const port = 8080; // default port to listen
+// const port = 8080;
+const port =  process.env.PORT || 3000
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(caixaRoutes);
 app.use(containerRoutes);
 app.use(workerRoutes);
+
+app.use((req: any, res: any, next: any) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 const mongoUri = 'mongodb+srv://admin:passwordpassword@cluster0.9zwfc.mongodb.net/ClusterAlocador?retryWrites=true&w=majority&authSource=admin';
 
@@ -41,7 +50,7 @@ app.get( "/", ( req: any, res: any ) => {
 
 // start the Express server
 app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
+    console.log( `server started at port ${ port }` );
 } );
 
 
