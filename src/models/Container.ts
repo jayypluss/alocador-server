@@ -6,10 +6,10 @@ const containerSchema = new mongoose.Schema({
     larguraZ: { type: Number },
     quantidade: { type: Number },
     quantidadeCaixasAlocadas: { type: Number },
-    volumeAlocado: { type: Number }
+    volumeAlocado: { type: Number },
     // ultimaCaixaAlocada: { type: Number },
     // paredes: { type: Number },
-    // caixasAlocadas: { type: Number },
+    caixasAlocadas: { type: [Object] },
     // idsCaixasAlocadas: { type: Number },
 });
 

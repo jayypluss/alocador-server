@@ -4,13 +4,15 @@ import { Container } from "./container";
 
 export class Caixa extends Objeto3D {
     id: number;
+    idGrupoCaixas: number;
     volume: number;
     posicao: ItemMatriz;
     container: Container;
 
-    constructor(id: number, comprimentoX: number, alturaY: number, larguraZ: number) {
+    constructor(id: number, comprimentoX: number, alturaY: number, larguraZ: number, idGrupoCaixa?: number) {
         super(id, comprimentoX, alturaY, larguraZ);
         this.volume = (comprimentoX * alturaY * larguraZ);
+        this.idGrupoCaixas = idGrupoCaixa;
     }
 
     atribuirPosicao(x: number, y: number, z: number) {

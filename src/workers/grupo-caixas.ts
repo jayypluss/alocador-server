@@ -12,7 +12,7 @@ export class GrupoCaixas {
     public criarCaixas(comprimentoX: number, alturaY: number, larguraZ: number, quantidade: number = 0): Caixa[] {
         if (quantidade > 0) {
             for (let index = 0; index < quantidade; index++) {
-                this.caixas.push( new Caixa( index, comprimentoX, alturaY, larguraZ ) );
+                this.caixas.push( new Caixa( index, comprimentoX, alturaY, larguraZ, this.id ) );
             }
         }
         return this.caixas;

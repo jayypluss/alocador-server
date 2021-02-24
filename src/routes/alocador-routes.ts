@@ -42,28 +42,24 @@ router.post('/alocar', async (req, res) => {
 
     const containerOcupado = await alocador.alocarTodas(containerMapeado, gruposMapeados);
 
-    const containerOcupadoModel = {
+    const caixas: any[] = [];
+    containerOcupado.caixasAlocadas.forEach(caixa => {
+        caixas.push({ posicao: caixa.posicao, id: caixa.id, idGrupoCaixas: caixa.idGrupoCaixas, volume: caixa.volume });
+    });
+
+    const containerOcupadoModel = new ContainerFromDb({
             comprimentoX: containerOcupado.comprimentoX,
             alturaY: containerOcupado.alturaY,
             larguraZ: containerOcupado.alturaY,
             quantidadeCaixasAlocadas: containerOcupado.quantidadeCaixasAlocadas,
             volumeAlocado: containerOcupado.volumeAlocado,
-        };
-
-    // const containerOcupadoResponse = JSON.stringify(containerOcupadoModel);
-    const containerOcupadoResponseStringified = JSON.stringify(containerOcupadoModel);
+            caixasAlocadas: caixas,
+        });
 
     try {
-        // const containerOcupadoModel = new ContainerFromDb({
-        //         comprimentoX: containerOcupado.comprimentoX,
-        //         alturaY: containerOcupado.alturaY,
-        //         larguraZ: containerOcupado.alturaY,
-        //         quantidadeCaixasAlocadas: containerOcupado.quantidadeCaixasAlocadas,
-        //         volumeAlocado: containerOcupado.volumeAlocado,
-        //     });
 
-        // await containerOcupadoModel.save();
-        res.send(containerOcupadoResponseStringified);
+        await containerOcupadoModel.save();
+        res.status(200).send(containerOcupadoModel);
     } catch (err) {
         res.status(422).send({ error: err.message });
     }
