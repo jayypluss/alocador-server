@@ -14,3 +14,7 @@ para instalar as dependências.
 
 Após instalar as dependências, para rodar o projeto utilize o comando
 `npm run dev`.
+
+### Outras informações
+
+Por padrão, esta aplicação irá rodar na porta `3001`, ou então na porta especificada pelo `process.env.PORT`. Isso pode ser alterado no arquivo https://github.com/jayypluss/alocador-server/blob/main/src/index.ts.
