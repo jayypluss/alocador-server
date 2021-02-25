@@ -23,18 +23,11 @@ export class Alocador {
             caixasListaFlat = caixasListaFlat.concat(grupo.caixas);
         });
 
-        console.log('totalCaixa: ', caixasListaFlat.length);
 
+        // tslint:disable-next-line: prefer-for-of
         for (let index = 0; index < caixasListaFlat.length; index++) {
             ultimaCaixaAlocada = this.container.alocar(caixasListaFlat[index]);
-            console.log('caixa alocada: ', ultimaCaixaAlocada?.posicao, " (", index+1, ") ");
         }
-
-        console.log('');
-        console.log('Dados do container pós-alocação: ');
-        console.log('container.caixasAlocadas.length', container.caixasAlocadas.length);
-        console.log('container.quantidadeCaixasAlocadas', container.quantidadeCaixasAlocadas);
-        console.log('container.volumeAlocado', container.volumeAlocado);
 
         return Promise.resolve(container);
     }
