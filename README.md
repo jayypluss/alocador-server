@@ -1,6 +1,7 @@
 # alocador-server
 Express API de otimização e alocação de cargas 3D em containers. 
-
+Este projeto serve como API para o frontend do projeto: https://github.com/jayypluss/alocador-front.
+Portanto ambos têm que estar rodando para o funcionamento da aplicação.
 
 ### Instalando dependências
 Para rodar a aplicação é necessário ter o [npm](https://www.npmjs.com/) e o [nodeJS](https://nodejs.org/en/) (testado na versão v14) instalado.
