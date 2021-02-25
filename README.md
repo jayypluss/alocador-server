@@ -12,4 +12,4 @@ para instalar as dependências.
 ### Rodando o projeto
 
 Após instalar as dependências, para rodar o projeto utilize o comando
-`npm start`
+`npm run dev`
