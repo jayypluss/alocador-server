@@ -58,7 +58,7 @@ router.post('/alocar', async (req, res) => {
 
     try {
 
-        await containerOcupadoModel.save();
+        // await containerOcupadoModel.save();
         res.status(200).send(containerOcupadoModel);
     } catch (err) {
         res.status(422).send({ error: err.message });
